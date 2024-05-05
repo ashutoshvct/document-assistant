@@ -1,0 +1,504 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>langchain_community.document_loaders.text.TextLoader &mdash; 🦜🔗 LangChain 0.1.17</title>
+  
+  <link rel="canonical" href="langchain_community.document_loaders.text.TextLoader.html" />
+
+  
+
+  <link rel="stylesheet" href="../_static/css/vendor/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/autodoc_pydantic.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx-dropdown.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels-bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+<script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+<script src="../_static/jquery.js"></script> 
+<script async type="text/javascript" src="../../../_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="langchain" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/document_loaders/langchain_community.document_loaders.text.TextLoader.html" /></head>
+<body>
+
+
+<nav id="navbar" class="sk-docs-navbar navbar navbar-expand-md navbar-light bg-light py-0">
+  <div class="container-fluid sk-docs-container px-0">
+    <button
+      id="sk-navbar-toggler"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="sk-navbar-collapse collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../langchain_api_reference.html">LangChain</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../core_api_reference.html">Core</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../community_api_reference.html">Community</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../experimental_api_reference.html">Experimental</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" href="../text_splitters_api_reference.html">Text splitters</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../ai21_api_reference.html">ai21</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../airbyte_api_reference.html">airbyte</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../anthropic_api_reference.html">anthropic</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../astradb_api_reference.html">astradb</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../chroma_api_reference.html">chroma</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../cohere_api_reference.html">cohere</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../elasticsearch_api_reference.html">elasticsearch</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../exa_api_reference.html">exa</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../fireworks_api_reference.html">fireworks</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../google_genai_api_reference.html">google-genai</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../google_vertexai_api_reference.html">google-vertexai</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../groq_api_reference.html">groq</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../ibm_api_reference.html">ibm</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../mistralai_api_reference.html">mistralai</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../mongodb_api_reference.html">mongodb</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../nomic_api_reference.html">nomic</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../nvidia_ai_endpoints_api_reference.html">nvidia-ai-endpoints</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../nvidia_trt_api_reference.html">nvidia-trt</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../openai_api_reference.html">openai</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../pinecone_api_reference.html">pinecone</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../postgres_api_reference.html">postgres</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../robocorp_api_reference.html">robocorp</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../together_api_reference.html">together</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../upstage_api_reference.html">upstage</a>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link nav-more-item-mobile-items" href="../voyageai_api_reference.html">voyageai</a>
+        </li>
+        <li class="nav-item dropdown nav-more-item-dropdown">
+          <a class="sk-nav-link nav-link dropdown-toggle" href="langchain_community.document_loaders.text.TextLoader.html#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Partner libs</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="sk-nav-dropdown-item dropdown-item" href="../ai21_api_reference.html">ai21</a>
+              <a class="sk-nav-dropdown-item dropdown-item" href="../airbyte_api_reference.html">airbyte</a>
+              <a class="sk-nav-dropdown-item dropdown-item" href="../anthropic_api_reference.html">anthropic</a>
+              <a class="sk-nav-dropdown-item dropdown-item" href="../astradb_api_reference.html">astradb</a>
+              <a class="sk-nav-dropdown-item dropdown-item" href="../chroma_api_reference.html">chroma</a>
+              <a class="sk-nav-dropdown-item dropdown-item" href="../cohere_api_reference.html">cohere</a>
+              <a class="sk-nav-dropdown-item dropdown-item" href="../elasticsearch_api_reference.html">elasticsearch</a>
+              <a class="sk-nav-dropdown-item dropdown-item" href="../exa_api_reference.html">exa</a>
+              <a class="sk-nav-dropdown-item dropdown-item" href="../fireworks_api_reference.html">fireworks</a>
+              <a class="sk-nav-dropdown-item dropdown-item" href="../google_genai_api_reference.html">google-genai</a>
+              <a class="sk-nav-dropdown-item dropdown-item" href="../google_vertexai_api_reference.html">google-vertexai</a>
+              <a class="sk-nav-dropdown-item dropdown-item" href="../groq_api_reference.html">groq</a>
+              <a class="sk-nav-dropdown-item dropdown-item" href="../ibm_api_reference.html">ibm</a>
+              <a class="sk-nav-dropdown-item dropdown-item" href="../mistralai_api_reference.html">mistralai</a>
+              <a class="sk-nav-dropdown-item dropdown-item" href="../mongodb_api_reference.html">mongodb</a>
+              <a class="sk-nav-dropdown-item dropdown-item" href="../nomic_api_reference.html">nomic</a>
+              <a class="sk-nav-dropdown-item dropdown-item" href="../nvidia_ai_endpoints_api_reference.html">nvidia-ai-endpoints</a>
+              <a class="sk-nav-dropdown-item dropdown-item" href="../nvidia_trt_api_reference.html">nvidia-trt</a>
+              <a class="sk-nav-dropdown-item dropdown-item" href="../openai_api_reference.html">openai</a>
+              <a class="sk-nav-dropdown-item dropdown-item" href="../pinecone_api_reference.html">pinecone</a>
+              <a class="sk-nav-dropdown-item dropdown-item" href="../postgres_api_reference.html">postgres</a>
+              <a class="sk-nav-dropdown-item dropdown-item" href="../robocorp_api_reference.html">robocorp</a>
+              <a class="sk-nav-dropdown-item dropdown-item" href="../together_api_reference.html">together</a>
+              <a class="sk-nav-dropdown-item dropdown-item" href="../upstage_api_reference.html">upstage</a>
+              <a class="sk-nav-dropdown-item dropdown-item" href="../voyageai_api_reference.html">voyageai</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="sk-nav-link nav-link" target="_blank" rel="noopener noreferrer" href="https://python.langchain.com/">Docs</a>
+        </li>
+      </ul>
+      <div id="searchbox" role="search">
+          <div class="searchformwrapper">
+          <form class="search" action="https://api.python.langchain.com/en/latest/search.html" method="get">
+            <input class="sk-search-text-input" type="text" name="q" aria-labelledby="searchlabel" />
+            <input class="sk-search-text-btn" type="submit" value="Go" />
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="d-flex" id="sk-doc-wrapper">
+    <input type="checkbox" name="sk-toggle-checkbox" id="sk-toggle-checkbox">
+    <label id="sk-sidemenu-toggle" class="sk-btn-toggle-toc btn sk-btn-primary" for="sk-toggle-checkbox">Toggle Menu</label>
+    <div id="sk-sidebar-wrapper" class="border-right">
+      <div class="sk-sidebar-toc-wrapper">
+        <div class="btn-group w-100 mb-2" role="group" aria-label="rellinks">
+            <a href="langchain_community.document_loaders.text.TextLoader.html#" role="button" class="btn sk-btn-rellink py-1 disabled"">Prev</a>
+            <a href="langchain_community.document_loaders.text.TextLoader.html#" role="button" class="btn sk-btn-rellink disabled py-1">Up</a>
+            <a href="langchain_community.document_loaders.text.TextLoader.html#" role="button" class="btn sk-btn-rellink py-1 disabled"">Next</a>
+        </div>
+            <div class="sk-sidebar-toc">
+              <ul>
+<li><a class="reference internal" href="langchain_community.document_loaders.text.TextLoader.html#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">langchain_community.document_loaders.text</span></code>.TextLoader</a><ul>
+<li><a class="reference internal" href="langchain_community.document_loaders.text.TextLoader.html#langchain_community.document_loaders.text.TextLoader"><code class="docutils literal notranslate"><span class="pre">TextLoader</span></code></a><ul>
+<li><a class="reference internal" href="langchain_community.document_loaders.text.TextLoader.html#langchain_community.document_loaders.text.TextLoader.__init__"><code class="docutils literal notranslate"><span class="pre">TextLoader.__init__()</span></code></a></li>
+<li><a class="reference internal" href="langchain_community.document_loaders.text.TextLoader.html#langchain_community.document_loaders.text.TextLoader.alazy_load"><code class="docutils literal notranslate"><span class="pre">TextLoader.alazy_load()</span></code></a></li>
+<li><a class="reference internal" href="langchain_community.document_loaders.text.TextLoader.html#langchain_community.document_loaders.text.TextLoader.aload"><code class="docutils literal notranslate"><span class="pre">TextLoader.aload()</span></code></a></li>
+<li><a class="reference internal" href="langchain_community.document_loaders.text.TextLoader.html#langchain_community.document_loaders.text.TextLoader.lazy_load"><code class="docutils literal notranslate"><span class="pre">TextLoader.lazy_load()</span></code></a></li>
+<li><a class="reference internal" href="langchain_community.document_loaders.text.TextLoader.html#langchain_community.document_loaders.text.TextLoader.load"><code class="docutils literal notranslate"><span class="pre">TextLoader.load()</span></code></a></li>
+<li><a class="reference internal" href="langchain_community.document_loaders.text.TextLoader.html#langchain_community.document_loaders.text.TextLoader.load_and_split"><code class="docutils literal notranslate"><span class="pre">TextLoader.load_and_split()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+      </div>
+    </div>
+    <div id="sk-page-content-wrapper">
+      <div class="sk-page-content container-fluid body px-md-3" role="main">
+        
+  <section id="langchain-community-document-loaders-text-textloader">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">langchain_community.document_loaders.text</span></code>.TextLoader<a class="headerlink" href="langchain_community.document_loaders.text.TextLoader.html#langchain-community-document-loaders-text-textloader" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="langchain_community.document_loaders.text.TextLoader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">langchain_community.document_loaders.text.</span></span><span class="sig-name descname"><span class="pre">TextLoader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autodetect_encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/langchain_community/document_loaders/text.html#TextLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="langchain_community.document_loaders.text.TextLoader.html#langchain_community.document_loaders.text.TextLoader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load text file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_path</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – Path to the file to load.</p></li>
+<li><p><strong>encoding</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – File encoding to use. If <cite>None</cite>, the file will be loaded</p></li>
+<li><p><strong>encoding.</strong> (<em>with the default system</em>) – </p></li>
+<li><p><strong>autodetect_encoding</strong> (<em>bool</em>) – Whether to try to autodetect the file encoding
+if the specified encoding fails.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Initialize with file path.</p>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="langchain_community.document_loaders.text.TextLoader.html#langchain_community.document_loaders.text.TextLoader.__init__" title="langchain_community.document_loaders.text.TextLoader.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(file_path[, encoding, ...])</p></td>
+<td><p>Initialize with file path.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="langchain_community.document_loaders.text.TextLoader.html#langchain_community.document_loaders.text.TextLoader.alazy_load" title="langchain_community.document_loaders.text.TextLoader.alazy_load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">alazy_load</span></code></a>()</p></td>
+<td><p>A lazy loader for Documents.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="langchain_community.document_loaders.text.TextLoader.html#langchain_community.document_loaders.text.TextLoader.aload" title="langchain_community.document_loaders.text.TextLoader.aload"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aload</span></code></a>()</p></td>
+<td><p>Load data into Document objects.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="langchain_community.document_loaders.text.TextLoader.html#langchain_community.document_loaders.text.TextLoader.lazy_load" title="langchain_community.document_loaders.text.TextLoader.lazy_load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lazy_load</span></code></a>()</p></td>
+<td><p>Load from file path.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="langchain_community.document_loaders.text.TextLoader.html#langchain_community.document_loaders.text.TextLoader.load" title="langchain_community.document_loaders.text.TextLoader.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>()</p></td>
+<td><p>Load data into Document objects.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="langchain_community.document_loaders.text.TextLoader.html#langchain_community.document_loaders.text.TextLoader.load_and_split" title="langchain_community.document_loaders.text.TextLoader.load_and_split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_and_split</span></code></a>([text_splitter])</p></td>
+<td><p>Load Documents and split into chunks.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="langchain_community.document_loaders.text.TextLoader.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autodetect_encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/langchain_community/document_loaders/text.html#TextLoader.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="langchain_community.document_loaders.text.TextLoader.html#langchain_community.document_loaders.text.TextLoader.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize with file path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_path</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – </p></li>
+<li><p><strong>encoding</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>autodetect_encoding</strong> (<em>bool</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="langchain_community.document_loaders.text.TextLoader.alazy_load">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">alazy_load</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../documents/langchain_core.documents.base.Document.html#langchain_core.documents.base.Document" title="langchain_core.documents.base.Document"><span class="pre">Document</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="langchain_community.document_loaders.text.TextLoader.html#langchain_community.document_loaders.text.TextLoader.alazy_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>A lazy loader for Documents.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><em>AsyncIterator</em>[<a class="reference internal" href="../documents/langchain_core.documents.base.Document.html#langchain_core.documents.base.Document" title="langchain_core.documents.base.Document"><em>Document</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="langchain_community.document_loaders.text.TextLoader.aload">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">aload</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../documents/langchain_core.documents.base.Document.html#langchain_core.documents.base.Document" title="langchain_core.documents.base.Document"><span class="pre">Document</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="langchain_community.document_loaders.text.TextLoader.html#langchain_community.document_loaders.text.TextLoader.aload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load data into Document objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><em>List</em>[<a class="reference internal" href="../documents/langchain_core.documents.base.Document.html#langchain_core.documents.base.Document" title="langchain_core.documents.base.Document"><em>Document</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="langchain_community.document_loaders.text.TextLoader.lazy_load">
+<span class="sig-name descname"><span class="pre">lazy_load</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../documents/langchain_core.documents.base.Document.html#langchain_core.documents.base.Document" title="langchain_core.documents.base.Document"><span class="pre">Document</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/langchain_community/document_loaders/text.html#TextLoader.lazy_load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="langchain_community.document_loaders.text.TextLoader.html#langchain_community.document_loaders.text.TextLoader.lazy_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load from file path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><em>Iterator</em>[<a class="reference internal" href="../documents/langchain_core.documents.base.Document.html#langchain_core.documents.base.Document" title="langchain_core.documents.base.Document"><em>Document</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="langchain_community.document_loaders.text.TextLoader.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../documents/langchain_core.documents.base.Document.html#langchain_core.documents.base.Document" title="langchain_core.documents.base.Document"><span class="pre">Document</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="langchain_community.document_loaders.text.TextLoader.html#langchain_community.document_loaders.text.TextLoader.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load data into Document objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><em>List</em>[<a class="reference internal" href="../documents/langchain_core.documents.base.Document.html#langchain_core.documents.base.Document" title="langchain_core.documents.base.Document"><em>Document</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="langchain_community.document_loaders.text.TextLoader.load_and_split">
+<span class="sig-name descname"><span class="pre">load_and_split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text_splitter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../base/langchain_text_splitters.base.TextSplitter.html#langchain_text_splitters.base.TextSplitter" title="langchain_text_splitters.base.TextSplitter"><span class="pre">TextSplitter</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../documents/langchain_core.documents.base.Document.html#langchain_core.documents.base.Document" title="langchain_core.documents.base.Document"><span class="pre">Document</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="langchain_community.document_loaders.text.TextLoader.html#langchain_community.document_loaders.text.TextLoader.load_and_split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load Documents and split into chunks. Chunks are returned as Documents.</p>
+<p>Do not override this method. It should be considered to be deprecated!</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>text_splitter</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="../base/langchain_text_splitters.base.TextSplitter.html#langchain_text_splitters.base.TextSplitter" title="langchain_text_splitters.base.TextSplitter"><em>TextSplitter</em></a><em>]</em>) – TextSplitter instance to use for splitting documents.
+Defaults to RecursiveCharacterTextSplitter.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of Documents.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="../documents/langchain_core.documents.base.Document.html#langchain_core.documents.base.Document" title="langchain_core.documents.base.Document">Document</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<h1>Examples using TextLoader<a class="headerlink" href="langchain_community.document_loaders.text.TextLoader.html#langchain-community-document-loaders-text-textloader" title="Permalink to this heading">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/google_memorystore_redis/"># Automatically restart kernel after installs so that your environment can access the new packages</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/sklearn/"># if you plan to use bson serialization, install also:</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/surrealdb/">%pip install –upgrade –quiet  surrealdb langchain langchain-community</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/callbacks/uptrain/">1. Vanilla RAG {#vanilla-rag-1}</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/baiducloud_vector_search/">Create a bes instance and index docs.</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/semadb/">Create collection if running for the first time. If the collection</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/clarifai/">Dependencies {#dependencies}</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/modules/data_connection/document_loaders/index/">Document loaders</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/documentdb/">DocumentDB connection string</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/singlestoredb/">Establishing a connection to the database is facilitated through the singlestoredb Python connector.</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/modules/data_connection/document_loaders/file_directory/">File Directory</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/docarray_in_memory/">Get an OpenAI token: https://platform.openai.com/account/api-keys</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/modules/data_connection/retrievers/contextual_compression/">Helper function for printing docs</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/tidb_vector/">Here we useimport getpass</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/callbacks/confident/">Here we want to make sure the answer is minimally relevant</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/opensearch/">If using the default Docker installation, use this instantiation instead:</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/modules/agents/how_to/agent_structured/">Load in document to retrieve over</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/vlite/">Load the document and split it into chunks</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/elasticsearch/">Metadata {#metadata}</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/vearch/">OR</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/document_transformers/cross_encoder_reranker/">OR  (depending on Python version)</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/azuresearch/">Option 1: use an OpenAI account</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/vdms/">Pip install necessary package</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/lantern/">Pip install necessary package {#pip-install-necessary-package}</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/timescalevector/">Pip install necessary packages</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/vald/">Refresh is required for server use</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/modules/data_connection/retrievers/.ipynb_checkpoints/index-checkpoint/">Retrievers</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/pgvecto_rs/">Run tests with shell:</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/azure_cosmos_db/">Set up the OpenAI Environment Variables</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/momento_vector_index/">Setup {#setup}</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/modules/data_connection/text_embedding/caching_embeddings/">Swapping the `ByteStore` {#swapping-the-bytestore}</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/modules/data_connection/retrievers/multi_vector/">The vectorstore to use to index the child chunks</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/modules/data_connection/retrievers/parent_document_retriever/">This text splitter is used to create the child documents</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/milvus/">This will only get documents for Ankush</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/meilisearch/">Use Meilisearch vector store to store texts &amp; associated embeddings as vector</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/providers/vdms/">VDMS</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/modules/data_connection/vectorstores/index/">Vector stores</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/couchbase/">Wait until the cluster is ready for use.</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/sqlitevss/">You need to install sqlite-vss as a dependency.</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/dashvector/">add texts</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/analyticdb/">analyticdb.md</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/atlas/">atlas.md</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/awadb/">awadb.md</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/retrievers/azure_ai_search/">azure_ai_search.md</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/baiduvectordb/">baiduvectordb.md</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/clickhouse/">clickhouse.md</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/use_cases/question_answering/conversational_retrieval_agents/">conversational_retrieval_agents.md</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/jaguar/">cosine: distance metric</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/bageldb/">create cluster and add texts</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/databricks_vector_search/">databricks_vector_search.md</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/annoy/">default metric is angular</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/vespa/">docs[0].metadata[“id”] == “id:testapp:testapp::32”</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/tair/">drop first if index already exists</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/duckdb/">duckdb.md</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/ecloud_vector_search/">ecloud_vector_search.md</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/epsilla/">epsilla.md</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/alibabacloud_opensearch/">for example</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/tencentvectordb/">from langchain_community.embeddings.openai import OpenAIEmbeddings</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/hologres/">hologres.md</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/chroma/">import</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/marqo/">initialize marqo</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/weaviate/">install package</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/lancedb/">lancedb.md</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/hippo/">openai</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/dingo/">or install latest:</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/activeloop_deeplake/">or shorter</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/faiss/">os.environ[“LANGCHAIN_TRACING_V2”] = “true”</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/rockset/">output length: 4</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/pinecone/">pinecone.md</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/qdrant/">qdrant.md</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/zilliz/">replace</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/scann/">scann.md</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/tigris/">tigris.md</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/tiledb/">tiledb.md</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/typesense/">typesense.md</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/myscale/">use directly a `where_str` to delete</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/usearch/">usearch.md</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/modules/data_connection/retrievers/vectorstore/">vectorstore.md</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/vikingdb/">vikingdb.md</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/supabase/">with pip</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/docs/integrations/vectorstores/xata/">xata.md</a></p></li>
+</ul>
+</section>
+
+
+      </div>
+    <div class="container">
+      <footer class="sk-content-footer">
+            &copy; 2023, LangChain, Inc..
+          Last updated on May 04, 2024.
+      </footer>
+    </div>
+  </div>
+</div>
+<script src="../_static/js/vendor/bootstrap.min.js"></script>
+<script>
+$(document).ready(function() {
+    /* Add a [>>>] button on the top-right corner of code samples to hide
+     * the >>> and ... prompts and the output and thus make the code
+     * copyable. */
+    var div = $('.highlight-python .highlight,' +
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+		'.highlight-default .highlight')
+    var pre = div.find('pre');
+
+    // get the styles from the current theme
+    pre.parent().parent().css('position', 'relative');
+    var hide_text = 'Hide prompts and outputs';
+    var show_text = 'Show prompts and outputs';
+
+    // create and add the button to all the code blocks that contain >>>
+    div.each(function(index) {
+        var jthis = $(this);
+        if (jthis.find('.gp').length > 0) {
+            var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+            jthis.prepend(button);
+        }
+        // tracebacks (.gt) contain bare text elements that need to be
+        // wrapped in a span to work with .nextUntil() (see later)
+        jthis.find('pre:has(.gt)').contents().filter(function() {
+            return ((this.nodeType == 3) && (this.data.trim().length > 0));
+        }).wrap('<span>');
+    });
+
+    // define the behavior of the button when it's clicked
+    $('.copybutton').click(function(e){
+        e.preventDefault();
+        var button = $(this);
+        if (button.data('hidden') === 'false') {
+            // hide the code output
+            button.parent().find('.go, .gp, .gt').hide();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'hidden');
+            button.css('text-decoration', 'line-through');
+            button.attr('title', show_text);
+            button.data('hidden', 'true');
+        } else {
+            // show the code output
+            button.parent().find('.go, .gp, .gt').show();
+            button.next('pre').find('.gt').nextUntil('.gp, .go').css('visibility', 'visible');
+            button.css('text-decoration', 'none');
+            button.attr('title', hide_text);
+            button.data('hidden', 'false');
+        }
+    });
+
+	/*** Add permalink buttons next to glossary terms ***/
+	$('dl.glossary > dt[id]').append(function() {
+		return ('<a class="headerlink" href="langchain_community.document_loaders.text.TextLoader.html#' +
+			    this.getAttribute('id') +
+			    '" title="Permalink to this term">¶</a>');
+	});
+});
+
+</script>
+    
+</body>
+</html>
